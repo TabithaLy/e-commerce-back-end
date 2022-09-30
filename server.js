@@ -1,6 +1,6 @@
 const express = require('express');
 const routes = require('./routes');
-// import sequelize connection
+// import sequelize connection - from miniproject
 const sequelize = require('./config/connection');
 
 const app = express();
@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
 
-// turn on connection to db and server
+// turn on connection to db and server - from miniproject
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
